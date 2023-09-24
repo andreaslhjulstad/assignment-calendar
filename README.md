@@ -5,7 +5,7 @@ AssignmentCalendar ble utviklet som et prosjekt i faget TDT4100 - Objektorienter
 ## Hva er AssignmentCalendar?
 
 AssignmentCalendar er en app som hjelper travle studenter med å holde styr på innleveringer.  
-Den er bygget med Maven, Java og JavaFX. # assignment-calendar
+Den er bygget med Maven, Java og JavaFX.
 
 ## Skjermbilder
 
