@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendar.CalendarController">
+   <children>
+      <Pane layoutX="7.0" layoutY="7.0" prefHeight="411.0" prefWidth="333.0">
+         <children>
+            <DatePicker fx:id="datePicker" layoutX="16.0" layoutY="35.0" onAction="#checkValidInput" onKeyReleased="#checkValidInput" prefHeight="27.0" prefWidth="174.0" promptText="Enter date (DD.MM.YYYY)" />
+            <Label layoutX="16.0" layoutY="14.0" text="Select a date">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="descriptionInput" layoutX="16.0" layoutY="117.0" prefHeight="121.0" prefWidth="279.0" promptText="Description (optional)" />
+            <TextField fx:id="courseCodeInput" layoutX="200.0" layoutY="35.0" onKeyReleased="#checkValidInput" prefHeight="27.0" prefWidth="95.0" promptText="Course code" />
+            <Label layoutX="14.0" layoutY="337.0" text="File location:" />
+            <TextField fx:id="fileLocationNameField" layoutX="83.0" layoutY="334.0" prefHeight="25.0" prefWidth="145.0" />
+            <Button fx:id="browseButton" layoutX="231.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleBrowse" text="Browse..." />
+            <Button fx:id="addButton" layoutX="236.0" layoutY="249.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="27.0" prefWidth="59.0" text="Add" />
+            <Button fx:id="importButton" layoutX="14.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleImport" text="Import" />
+            <Button fx:id="exportButton" layoutX="68.0" layoutY="369.0" mnemonicParsing="false" onAction="#handleExport" text="Export" />
+            <Label layoutX="200.0" layoutY="14.0" text="Enter course">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="96.0" text="Add a description">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="11.0" text="*" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="279.0" layoutY="11.0" text="*" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="notificationChoiceBox" layoutX="16.0" layoutY="250.0" prefWidth="150.0" />
+            <Label layoutX="202.0" layoutY="64.0" text="Example: &quot;ABC1234&quot;">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <Label layoutX="14.0" layoutY="306.0" text="Save or load existing calendar">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="328.0" layoutY="3.0" prefHeight="411.0" prefWidth="476.0">
+         <children>
+            <Text layoutX="16.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upcoming assignments">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Text>
+            <TableView fx:id="calendarTable" layoutX="16.0" layoutY="37.0" prefHeight="327.0" prefWidth="440.0">
+               <columns>
+                  <TableColumn fx:id="date" prefWidth="110.0" text="Date" />
+                  <TableColumn fx:id="course" prefWidth="110.0" text="Course" />
+                  <TableColumn fx:id="remainingDays" prefWidth="110.0" text="Remaining days" />
+                  <TableColumn fx:id="notification" prefWidth="110.0" text="Notification" />
+               </columns>
+            </TableView>
+            <Button fx:id="removeButton" layoutX="397.0" layoutY="372.0" mnemonicParsing="false" onAction="#handleRemove" prefHeight="27.0" prefWidth="59.0" text="Remove" />
+            <Button fx:id="descriptionButton" layoutX="16.0" layoutY="373.0" mnemonicParsing="false" onAction="#handleShowDescription" text="Show description" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

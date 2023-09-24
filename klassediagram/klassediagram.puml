@@ -1,0 +1,52 @@
+@startuml "Assignment Calendar"
+
+class Assignment {
+    - String dueDate
+    - String description
+    - long remainingDays
+    - String notification
+    - String notificationOption
+
+    + Assignment(Course, String, String, String)
+    + Course getCourse()
+    + String getDueDate()
+    + String getDescription()
+    + long getRemainingDays()
+    + String getNotification()
+    - boolean isValidDate(LocalDate)
+}
+
+Assignment -- "1" Course : course
+
+Calendar -- "*" Assignment : assignmentList
+
+class Calendar {
+    + void addAssignment(Assignment)
+    + void removeAssignment(int)
+    + void removeAssignment(Assignment)
+    + void getAssignment(int)
+    + List<Assignment> getAssignments()
+    + boolean containsAssignment()
+    + Iterator<Assignment> iterator()
+}
+
+class Course {
+    - String code
+
+    + Course(String)
+    + String getCode()
+}
+
+class AssignmentNotification {
+    - long remainingMillis
+    - long daysBefore
+    - Timer timer
+
+    + AssignmentNotification(Assignment)
+    + void schedule()
+    - int calculateNotificationDays(String)
+}
+
+Assignment "1" -- "1" AssignmentNotification : assignmentNotification
+
+@enduml
